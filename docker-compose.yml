@@ -1,0 +1,12 @@
+services:
+  bitwarden:
+    container_name: bitwarden
+    image: ${DOCKERHUB_IMAGE}
+    restart: always
+    ports:
+      - ${EXTERNAL_PORT}:80
+    volumes:
+      - ./data:/data
+    environment:
+      WEBSOCKET_ENABLED: "true" # Required to use websockets
+      SIGNUPS_ALLOWED: "true" # set to false to disable signups
