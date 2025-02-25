@@ -1,6 +1,6 @@
 # Bitwarden Service
 
-Bitwarden is a password valult manager like 1Password and LastPass.
+Bitwarden is a password vault manager like 1Password and LastPass.
 
 For more information about what is bitwarden you can click [here][Bitwarden Site].
 
