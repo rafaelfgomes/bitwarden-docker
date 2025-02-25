@@ -1,7 +1,7 @@
 services:
   bitwarden:
     container_name: bitwarden
-    image: ${DOCKERHUB_IMAGE}
+    image: vaultwarden/server
     restart: always
     ports:
       - ${EXTERNAL_PORT}:80
