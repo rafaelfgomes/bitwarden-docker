@@ -13,7 +13,7 @@ After that you can run the command:
 
 `docker-compose up -d`
 
-If everithing runs fine you can access you self-hosted passwords vault with your machine ip (or localhost or 127.0.0.1) and the port you chosen.
+If everything runs fine you can access you self-hosted passwords vault with your machine ip (or localhost or 127.0.0.1) and the port you chosen.
 
 Example: if I fill the port number with value `8181` I can access the service in any browser at:
 
