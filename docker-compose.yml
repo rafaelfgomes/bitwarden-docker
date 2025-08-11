@@ -4,9 +4,9 @@ services:
     image: vaultwarden/server
     restart: always
     ports:
-      - ${EXTERNAL_PORT}:80
+      - ${EXTERNAL_PORT:-80}:80
     volumes:
-      - ./data:/data
+      - data:/data
     environment:
       WEBSOCKET_ENABLED: "true" # Required to use websockets
       SIGNUPS_ALLOWED: "true" # set to false to disable signups
@@ -16,3 +16,7 @@ services:
 networks:
   net:
     external: false
+
+volumes:
+  data:
+    name: bitwarden-data
