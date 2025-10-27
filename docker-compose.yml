@@ -3,7 +3,7 @@ services:
     image: vaultwarden/server
     container_name: bitwarden
     hostname: bitwarden
-    restart: always
+    user: "UID:GID"
     ports:
       - ${EXTERNAL_PORT:-80}:80
     volumes:
@@ -13,6 +13,7 @@ services:
       SIGNUPS_ALLOWED: "true" # set to false to disable signups
     networks:
       - net
+    restart: always
 
 networks:
   net:
