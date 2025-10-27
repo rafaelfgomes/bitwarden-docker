@@ -2,7 +2,7 @@
 
 Bitwarden is a password vault manager like 1Password and LastPass.
 
-For more information about what is bitwarden you can click [here][Bitwarden Site].
+For more information about what is bitwarden, visit the [official Bitwarden website][Bitwarden Site].
 
 ## How to install and run
 
