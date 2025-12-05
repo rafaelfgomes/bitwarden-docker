@@ -6,13 +6,17 @@ services:
     ports:
       - ${EXTERNAL_PORT:-80}:80
     volumes:
-      - ${DATA_FOLDER:-./data}:/data
+      - data:/data
     environment:
       WEBSOCKET_ENABLED: "true" # Required to use websockets
       SIGNUPS_ALLOWED: "true" # set to false to disable signups
     networks:
       - net
     restart: always
+
+volumes:
+  data:
+    name: bitwarden-data
 
 networks:
   net:
