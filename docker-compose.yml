@@ -10,14 +10,18 @@ services:
     environment:
       WEBSOCKET_ENABLED: "true" # Required to use websockets
       SIGNUPS_ALLOWED: "true" # set to false to disable signups
-    networks:
-      - net
     restart: always
+    networks:
+      apps-network:
+        ipv4_address: ${BITWARDEN_IP}
+    dns:
+      - ${DNS_IP_1}
+      - ${DNS_IP_2:-9.9.9.9}
 
 volumes:
   data:
     name: bitwarden-data
 
 networks:
-  net:
-    external: false
+  apps-network:
+    external: true
