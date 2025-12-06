@@ -12,7 +12,7 @@ services:
       SIGNUPS_ALLOWED: "true" # set to false to disable signups
     restart: always
     networks:
-      apps-network:
+      net:
         ipv4_address: ${BITWARDEN_IP}
     dns:
       - ${DNS_IP_1}
@@ -23,5 +23,6 @@ volumes:
     name: bitwarden-data
 
 networks:
-  apps-network:
+  net:
     external: true
+    name: apps-network
