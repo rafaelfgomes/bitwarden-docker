@@ -25,4 +25,4 @@ volumes:
 networks:
   net:
     external: true
-    name: apps-network
+    name: webapps-network
