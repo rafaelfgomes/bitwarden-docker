@@ -4,7 +4,7 @@ services:
     container_name: bitwarden
     hostname: bitwarden
     ports:
-      - ${EXTERNAL_PORT:-80}:80
+      - ${BITWARDEN_PORT:-80}:80
     volumes:
       - data:/data
     environment:
@@ -13,10 +13,6 @@ services:
     restart: always
     networks:
       net:
-        ipv4_address: ${BITWARDEN_IP}
-    dns:
-      - ${DNS_IP_1}
-      - ${DNS_IP_2:-9.9.9.9}
 
 volumes:
   data:
@@ -24,5 +20,4 @@ volumes:
 
 networks:
   net:
-    external: true
-    name: webapps-network
+    external: false
