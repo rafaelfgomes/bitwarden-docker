@@ -4,7 +4,7 @@ services:
     container_name: bitwarden
     hostname: bitwarden
     volumes:
-      - data:/data
+      - ${BITWARDEN_DATA_FOLDER:-./data}:/data
     environment:
       WEBSOCKET_ENABLED: "true" # Required to use websockets
       SIGNUPS_ALLOWED: "true" # set to false to disable signups
@@ -12,11 +12,5 @@ services:
     networks:
       net:
 
-volumes:
-  data:
-    name: bitwarden-data
-
 networks:
-  net:
-    external: true
-    name: reverse-proxy-network
+  net: {}
