@@ -10,7 +10,10 @@ services:
       SIGNUPS_ALLOWED: "true" # set to false to disable signups
     restart: always
     networks:
-      net:
+      external:
+        ipv4_address: ${BITWARDEN_IP_ADDRESS}
 
 networks:
-  net: {}
+  external:
+    external: true
+    name: ${EXTERNAL_NETWORK_NAME}
