@@ -8,4 +8,5 @@ services:
     environment:
       WEBSOCKET_ENABLED: ${WEBSOCKET_ENABLED}
       SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED}
+      ADMIN_TOKEN: ${ADMIN_TOKEN}
     network_mode: host
