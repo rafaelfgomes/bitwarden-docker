@@ -4,16 +4,8 @@ services:
     container_name: bitwarden
     hostname: bitwarden
     volumes:
-      - ${BITWARDEN_DATA_FOLDER:-./data}:/data
+      - ./data:/data
     environment:
-      WEBSOCKET_ENABLED: "true" # Required to use websockets
-      SIGNUPS_ALLOWED: "true" # set to false to disable signups
-    restart: always
-    networks:
-      external:
-        ipv4_address: ${BITWARDEN_IP_ADDRESS}
-
-networks:
-  external:
-    external: true
-    name: ${EXTERNAL_NETWORK_NAME}
+      WEBSOCKET_ENABLED: ${WEBSOCKET_ENABLED}
+      SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED}
+    network_mode: host
