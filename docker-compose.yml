@@ -4,9 +4,14 @@ services:
     container_name: bitwarden
     hostname: bitwarden
     volumes:
-      - ./data:/data
+      - ${BITWARDEN_DATA_FOLDER:-./data}:/data
     environment:
       WEBSOCKET_ENABLED: ${WEBSOCKET_ENABLED}
       SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED}
       ADMIN_TOKEN: ${ADMIN_TOKEN}
-    network_mode: host
+    networks:
+      - local
+
+networks:
+  local:
+    name: bitwarden-local-network
