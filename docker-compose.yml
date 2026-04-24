@@ -10,11 +10,11 @@ services:
       SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED}
       ADMIN_TOKEN: ${ADMIN_TOKEN}
       DOMAIN: ${EXTERNAL_URL}
-    ports:
-      - ${BITWARDEN_PORT:-80}:80
     networks:
-      - local
+      external:
+        ipv4_address: ${BITWARDEN_IP}
 
 networks:
-  local:
-    name: bitwarden-local-network
+  external:
+    external: true
+    name: ${EXTERNAL_NETWORK_NAME}
