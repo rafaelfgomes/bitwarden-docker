@@ -1,0 +1,22 @@
+services:
+  bitwarden:
+    image: vaultwarden/server
+    container_name: bitwarden
+    hostname: bitwarden
+    volumes:
+      - ${BITWARDEN_DATA_FOLDER:-./data}:/data
+    environment:
+      WEBSOCKET_ENABLED: ${WEBSOCKET_ENABLED}
+      SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED}
+      ADMIN_TOKEN: ${ADMIN_TOKEN}
+      DOMAIN: ${EXTERNAL_URL}
+    networks:
+      local:
+        ipv4_address: 172.${SUBNET_NUMBER:-18}.0.1
+
+networks:
+  local:
+    name: bitwarden-local-network
+    ipam:
+      config:
+        - subnet: 172.${SUBNET_NUMBER:-18}.0.0/16
